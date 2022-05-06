@@ -1,5 +1,3 @@
-<ul>
-  <% @events.each do |event| %>
-    <li><%= event.event_date %></li>
-  <% end %>
-</ul>
+<% @events.each do |event| %>
+  <%= render partial: "shared/event_card", locals: { event: event } %>
+<% end %>

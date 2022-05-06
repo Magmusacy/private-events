@@ -6,10 +6,6 @@
   <h2>Created events:</h2>
 
   <% @user.created_events.each do |event| %>
-    <div class="event-card">
-      <p class="location"><%= event.location %></p>
-      <p class="date"><%= event.event_date %></p>
-      <p class="description"><%= event.description %></p>
-    </div>
+    <%= render partial: "shared/event_card", locals: { event: event } %>
   <% end %>
 </div>
