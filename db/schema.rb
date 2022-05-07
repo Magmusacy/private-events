@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_06_164001) do
+ActiveRecord::Schema.define(version: 2022_05_07_091109) do
 
-  create_table "event_users", force: :cascade do |t|
+  create_table "event_attendings", force: :cascade do |t|
     t.integer "user_id"
     t.integer "event_id"
     t.datetime "created_at", precision: 6, null: false

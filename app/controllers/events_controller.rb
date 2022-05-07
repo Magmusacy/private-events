@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   def index
+    # Add all events instance variable and attended events
     @events = Event.all
   end
 
