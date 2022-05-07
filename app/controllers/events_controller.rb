@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  before_action :authenticate_user!, only: [:new] # update, destroy - later
+
   def index
     # Add all events instance variable and attended events
     @events = Event.all
@@ -16,6 +18,10 @@ class EventsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @event = Event.find(params[:id])
   end
 
   private
