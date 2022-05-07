@@ -11,10 +11,16 @@
   </head>
 
   <body>
-    <%# <div class="top-bar">
-    </div> %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% if flash[:notice] %>
+      <div class="flash notice"><%= notice %></div>
+    <% end %>
+
+    <% if flash[:alert] %>
+      <div class="flash alert"><%= alert %></div>
+    <% end %>
+
+    <div class="top-bar">
+    </div>
     <%= yield %>
   </body>
 </html>

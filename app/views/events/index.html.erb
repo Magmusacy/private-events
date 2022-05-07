@@ -1,3 +1,12 @@
-<% @events.each do |event| %>
-  <%= render partial: "shared/event_card", locals: { event: event } %>
-<% end %>
+<div class="event index">
+  <div class="all-events">
+    <% @events.each do |event| %>
+      <%= render partial: "shared/event_card", locals: { event: event } %>
+    <% end %>
+
+  </div>
+
+  <div class="attended-events">
+
+  </div>
+</div>

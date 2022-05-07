@@ -1,11 +1,13 @@
-<div>
-  <p><%= @user.name %>'s profile</p>
-</div>
+<div class="show user">
+  <div>
+    <p><%= @user.name %>'s profile</p>
+  </div>
 
-<div class="created-events">
-  <h2>Created events:</h2>
+  <div class="created-events">
+    <h2>Created events:</h2>
 
-  <% @user.created_events.each do |event| %>
-    <%= render partial: "shared/event_card", locals: { event: event } %>
-  <% end %>
+    <% @user.created_events.each do |event| %>
+      <%= render partial: "shared/event_card", locals: { event: event } %>
+    <% end %>
+  </div>
 </div>
