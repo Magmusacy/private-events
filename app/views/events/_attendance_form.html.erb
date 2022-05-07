@@ -1,0 +1,17 @@
+<div>
+  <%# user signed in and currently attends that event %>
+  <% if user_signed_in? && current_user.attended_events.exists?(@event.id) %>
+    <% relationship = @event.event_attendings.find_by(user_id: current_user.id) %>
+
+    <%= form_with url: event_attending_path(relationship), method: :delete do |form| %>
+      <%= form.hidden_field :event_id, value: @event.id %>
+      <%= form.submit "Interested", class: "interested" %>
+    <% end %>
+  <%# user signed out or user doesn't currently attend that event %>
+  <% else %>
+    <%= form_with url: event_attendings_path, method: :post do |form| %>
+      <%= form.hidden_field :event_id, value: @event.id %>
+      <%= form.submit "Not interested", class: "not-interested" %>
+    <% end %>
+  <% end %>
+</div>
