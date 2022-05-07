@@ -1,21 +1,12 @@
-<div class="event-card">
-  <p class="location"><%= @event.location %></p>
-  <p class="date"><%= @event.date %></p>
-  <p class="description"><%= @event.description %></p>
+<%= render partial: "shared/event_card", locals: { event: @event } %>
 
-  <%# user signed in and currently attends that event %>
-  <% if user_signed_in? && current_user.attended_events.exists?(@event.id) %>
-    <% relationship = @event.event_attendings.find_by(user_id: current_user.id) %>
+<%= render partial: "attendance_form", locals: { event: @event } %>
 
-    <%= form_with url: event_attending_path(relationship), method: :delete do |form| %>
-      <%= form.hidden_field :event_id, value: @event.id %>
-      <%= form.submit "Interested", class: "interested" %>
+<div class="attendees">
+  <ul>
+    <%# this may cause N+1 problem %>
+    <% @event.attendees.each do |attendee| %>
+      <li><%= link_to attendee.name, user_path(attendee) %></li>
     <% end %>
-  <%# user signed out or user doesn't currently attend that event %>
-  <% else %>
-    <%= form_with url: event_attendings_path, method: :post do |form| %>
-      <%= form.hidden_field :event_id, value: @event.id %>
-      <%= form.submit "Not interested", class: "not-interested" %>
-    <% end %>
-  <% end %>
+  </ul>
 </div>
