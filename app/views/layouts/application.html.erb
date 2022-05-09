@@ -20,6 +20,15 @@
     <% end %>
 
     <div class="top-bar">
+      <div><%= link_to "Home", root_path %></div>
+      <div><%= link_to "Create event", new_event_path %></div>
+      <% if user_signed_in? %>
+        <div><%= link_to current_user.name, current_user %></div>
+        <div><%= link_to "Sign out", destroy_user_session_path, method: :delete %></div>
+      <% else %>
+        <div><%= link_to "Sign in", new_user_session_path %></div>
+        <div><%= link_to "Sign up", new_user_registration_path %></div>
+      <% end %>
     </div>
     <%= yield %>
   </body>
