@@ -10,4 +10,23 @@
       <%= render partial: "shared/event_card", locals: { event: event } %>
     <% end %>
   </div>
+
+  <div class="attended-events">
+  <% future_events = @user.attended_events.where('date > ?', Date.today) %>
+  <% past_events = @user.attended_events.where('date < ?', Date.today) %>
+
+    <div class="future">
+      <h2>Future events</h2>
+      <% future_events.each do |event| %>
+        <%= render partial: "shared/event_card", locals: { event: event } %>
+      <% end %>
+    </div>
+
+    <div class="past">
+      <h2>Past events</h2>
+      <% past_events.each do |event| %>
+        <%= render partial: "shared/event_card", locals: { event: event } %>
+      <% end %>
+    </div>
+  </div>
 </div>
