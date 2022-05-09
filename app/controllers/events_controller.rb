@@ -2,8 +2,8 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, only: [:new] # update, destroy - later
 
   def index
-    # Add all events instance variable and attended events
-    @events = Event.all
+    @past_events = Event.past
+    @upcoming_events = Event.upcoming
   end
 
   def new
@@ -14,7 +14,7 @@ class EventsController < ApplicationController
     @event = current_user.created_events.build(event_params)
 
     if @event.save
-      redirect_to root_url # temporary
+      redirect_to @event
     else
       render :new
     end
