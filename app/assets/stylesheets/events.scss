@@ -20,5 +20,38 @@
 }
 
 .event h2 {
+  margin: 5px 0px;
+}
+
+.event.show {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  justify-items: center;
+}
+
+.event.show .attendance {
+  position: sticky;
+  top: 0;
+}
+
+.stop-participating,
+.participate {
+  width: 250px;
+  height: 50px;
+}
+
+.event.show .event-card {
+  width: 100%;
+}
+
+.event.show .attendees ul {
+  list-style-type: none;
+  padding: 0;
   margin: 0;
+}
+
+.event.show .event-card .description {
+  overflow: visible;
+  overflow-wrap: break-word;
+  white-space: normal;
 }

@@ -1,12 +1,15 @@
-<%= render partial: "shared/event_card", locals: { event: @event } %>
+<div class="event show">
+  <div class="attendees">
+    <h2>Attendees: </h2>
+    <ul>
+      <%# this may cause N+1 problem %>
+      <% @event.attendees.each do |attendee| %>
+        <li><%= link_to attendee.name, user_path(attendee) %></li>
+      <% end %>
+    </ul>
+  </div>
 
-<%= render partial: "attendance_form", locals: { event: @event } %>
+  <%= render partial: "shared/event_card", locals: { event: @event } %>
 
-<div class="attendees">
-  <ul>
-    <%# this may cause N+1 problem %>
-    <% @event.attendees.each do |attendee| %>
-      <li><%= link_to attendee.name, user_path(attendee) %></li>
-    <% end %>
-  </ul>
+  <div class="form"><%= render partial: "attendance_form", locals: { event: @event } %></div>
 </div>

@@ -1,4 +1,4 @@
-<div>
+<div class="attendance">
   <%# user signed in and currently attends that event %>
   <% if user_signed_in? && current_user.attended_events.exists?(@event.id) %>
     <% relationship = @event.event_attendings.find_by(user_id: current_user.id) %>
