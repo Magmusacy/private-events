@@ -4,7 +4,21 @@
 
 // index action
 
-div.index.event {
+.index.event {
+  --gap: 15px;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: var(--gap);
+  padding: var(--gap);
+}
+
+.event .upcoming-events,
+.event .past-events {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+.event h2 {
+  margin: 0;
 }

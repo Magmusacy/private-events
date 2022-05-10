@@ -1,6 +1,18 @@
 <div class="event-card">
-  <p class="title"><%= link_to event.title, event %></p>
-  <p class="location"><%= event.location %></p>
-  <p class="date"><%= event.date %></p>
-  <p class="description"><%= event.description %></p>
+  <div class="title">
+    <h4>Title</h4>
+    <%= link_to event.title, event %>
+  </div>
+  <div class="location">
+    <h4>Location</h4>
+    <%= event.location %>
+  </div>
+  <div class="date">
+    <h4>Date</h4>
+    <%= event.date %>
+  </div>
+  <div class="description">
+    <h4>Description</h4>
+    <%= event.description %>
+  </div>
 </div>

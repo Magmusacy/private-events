@@ -1,0 +1,38 @@
+.event-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 60px 60px 1fr;
+  gap: 10px;
+  background-color: #d4d4d4;
+  box-shadow: 5px 5px 5px rgba(91, 91, 91, 0.264);;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.event-card .title {
+  grid-column: 1 / -1;
+}
+
+.event-card .description {
+  grid-column: 1 / -1;
+  // This will only show a bit of description, to view the entire text user should visit event's page
+  overflow-wrap: break-word;
+  // This behavior (ellipsis) will be used only on the index page of Events
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.event.show .event-card .description {
+}
+
+.event-card > * {
+  border-radius: 5px;
+  border: 2px solid #525252;
+  padding: 5px;
+}
+
+.event-card h4 {
+  color: rgb(186, 178, 178);
+  margin: 0;
+}

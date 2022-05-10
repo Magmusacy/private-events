@@ -19,6 +19,9 @@
 body {
   width: 100vw;
   height: 100vh;
+  // max-width prevents horizontal scroll which is caused by using overflow: hidden;
+  background: #e5e5e5;
+  max-width: 100%;
 }
 
 .flash {
@@ -52,6 +55,7 @@ body {
   display: flex;
   padding: 30px;
   gap: 20px;
+  box-shadow: var(--light-shadow);
 }
 
 .top-bar div {
