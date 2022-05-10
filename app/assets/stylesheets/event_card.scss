@@ -9,10 +9,6 @@
   padding: 10px;
 }
 
-.event-card .title {
-  grid-column: 1 / -1;
-}
-
 .event-card .description {
   grid-column: 1 / -1;
   // This will only show a bit of description, to view the entire text user should visit event's page
