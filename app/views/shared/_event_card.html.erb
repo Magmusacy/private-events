@@ -1,7 +1,12 @@
 <div class="event-card">
   <div class="title">
     <h4>Title</h4>
-    <%= link_to event.title, event %>
+    <%# easter egg %>
+    <% if event.title&.include?('taco hemingway') %>
+      <%= link_to event.title, "https://www.youtube.com/watch?v=kO6Ky8L0nrI", target: "_blank" %>
+    <% else %>
+      <%= link_to event.title, event %>
+    <% end %>
   </div>
   <div class="creator">
     <h4>Creator</h4>
