@@ -1,19 +1,30 @@
-<h2>Event creator</h2>
-
 <%= form_with model: @event do |form| %>
+  <h2>Every field is required</h2>
   <div>
-    <%= form.label :location, "Location: " %>
-    <%= form.text_field :location %>
+    <%= form.label :title, "Title:" %>
+    <%= form.text_field :title,
+                        autofocus: true,
+                        required: true,
+                        placeholder: "Neville's birthday" %>
+  </div>
+  <div>
+    <%= form.label :location, "Location:" %>
+    <%= form.text_field :location,
+                        required: true,
+                        placeholder: "Crew's safehouse" %>
   </div>
 
   <div>
     <%= form.label :date, "Date: " %>
-    <%= form.date_field :date %>
+    <%= form.date_field :date, required: true %>
   </div>
 
   <div>
-    <%= form.label :description, "Description" %>
-    <%= form.text_area :description, size: "50x10" %>
+    <%= form.label :description, "Description: (350 characters max)" %>
+    <%= form.text_area :description,
+                        size: "50x10",
+                        maxlength: 350,
+                        required: true %>
   </div>
 
   <div><%= form.submit %></div>
