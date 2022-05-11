@@ -2,6 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-body {
-  display: block;
-} // namespacing required :D
+.show.user {
+  --gap: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap);
+  padding: var(--gap);
+}
+
+.show.user .user-name {
+  grid-column: 1 / -1
+}
+
+.show.user .created-events,
+.show-user .attended-events {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}

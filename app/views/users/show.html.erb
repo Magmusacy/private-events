@@ -1,7 +1,5 @@
 <div class="show user">
-  <div>
-    <p><%= @user.name %>'s profile</p>
-  </div>
+  <div class="user-name"><%= @user.name %>'s profile</div>
 
   <div class="created-events">
     <h2>Created events:</h2>
@@ -12,18 +10,19 @@
   </div>
 
   <div class="attended-events">
+  <h2>Attended events:</h2>
   <% future_events = @user.attended_events.where('date > ?', Date.today) %>
   <% past_events = @user.attended_events.where('date < ?', Date.today) %>
 
     <div class="future">
-      <h2>Future events</h2>
+      <h3>Future events</h3>
       <% future_events.each do |event| %>
         <%= render partial: "shared/event_card", locals: { event: event } %>
       <% end %>
     </div>
 
     <div class="past">
-      <h2>Past events</h2>
+      <h3>Past events</h3>
       <% past_events.each do |event| %>
         <%= render partial: "shared/event_card", locals: { event: event } %>
       <% end %>
