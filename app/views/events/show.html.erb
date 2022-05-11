@@ -11,5 +11,10 @@
 
   <%= render partial: "shared/event_card", locals: { event: @event } %>
 
-  <div class="form"><%= render partial: "attendance_form", locals: { event: @event } %></div>
+  <div class="form">
+    <%= render partial: "attendance_form", locals: { event: @event } %>
+    <% if user_signed_in? && @event.creator == current_user %>
+      <%= render "event_action", event: @event  %>
+    <% end %>
+  </div>
 </div>
